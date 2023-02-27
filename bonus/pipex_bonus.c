@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:14:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/27 12:50:07 by aatki            ###   ########.fr       */
+/*   Updated: 2023/02/27 22:41:45 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	execution(char *command, char **env)
 {
@@ -53,9 +53,7 @@ int	main(int ac, char **av, char **env)
 		// fd[0] read
 		if (id == 0)
 		{
-			infile = open(av[1], O_RDONLY);
-			if (infile < 0)
-				perror("file can't open");
+			here_doc(av,&infile);
 			if (close(fd[0]) < 0)
 				perror("file can't close");
 			if (dup2(fd[1], 1) < 0)
@@ -65,10 +63,10 @@ int	main(int ac, char **av, char **env)
 			execution(av[2], env);
 			if (close(infile) < 0)
 				perror("file can't close");
-			while(i < (ac-3))
-			{
+			// while(i < (ac - 3))
+			// {
 				
-			}
+			// }
 			
 		}
 		id2 = fork();

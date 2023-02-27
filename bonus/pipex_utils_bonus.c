@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_utils.c                                      :+:      :+:    :+:   */
+/*   pipex_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:36:28 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/26 16:40:59 by aatki            ###   ########.fr       */
+/*   Updated: 2023/02/27 22:46:32 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "pipex_bonus.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -86,6 +76,6 @@ char	*check_env(char **env, char **cmd)
 	if (access(path,R_OK) == -1)
 		perror("no access to the command\n");
     ft_free(ret);
-    ft_free(cmd);
+    //ft_free(cmd);
     return(path);
 }
