@@ -6,23 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:14:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/26 20:47:17 by aatki            ###   ########.fr       */
+/*   Updated: 2023/02/27 12:50:07 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-// void	execution(char **av, char **env)
-// {
-// 	char	*path;
-// 	char *c[] = {av[2], av[1],NULL};
-// 	char	**cmd;
-// 	cmd = ft_split(av[2], ' ');
-// 	path = check_env(env, cmd);
-// 	execve(path, c, env);
-// 	ft_free(c);
-// 	ft_free(cmd);
-// }
 
 void	execution(char *command, char **env)
 {
@@ -70,11 +58,18 @@ int	main(int ac, char **av, char **env)
 				perror("file can't open");
 			if (close(fd[0]) < 0)
 				perror("file can't close");
-			if (dup2(fd[1], 1) < 0||dup2(infile, 0) < 0)
+			if (dup2(fd[1], 1) < 0)
+			perror("can't dup");
+			if(dup2(infile, 0) < 0)
 				perror("can't dup");
 			execution(av[2], env);
 			if (close(infile) < 0)
 				perror("file can't close");
+			while(i < (ac-3))
+			{
+				
+			}
+			
 		}
 		id2 = fork();
 		if (id2 < 0)
