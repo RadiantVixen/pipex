@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:19:23 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/27 22:48:01 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/04 15:32:27 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_free(char **p);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 int		ft_strlen(char *s);
-void    here_doc(char **av,int *infile);
+int     here_doc(char **av,int *infile);
+void    ft_error(char *s);
 #endif

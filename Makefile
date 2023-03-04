@@ -6,7 +6,7 @@
 #    By: aatki <aatki@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 17:07:21 by aatki             #+#    #+#              #
-#    Updated: 2023/02/27 22:44:46 by aatki            ###   ########.fr        #
+#    Updated: 2023/03/04 17:58:01 by aatki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCB = ./bonus/pipex_bonus.c\
 	./bonus/get_next_line_utils.c\
 
 OBJC = ${SRC :.c=.o}
+
 OBJCB = ${SRCB :.c=.o}
 
 CC = cc
@@ -44,6 +45,8 @@ ${NAMEB} : ${SRCB}
 
 clean :
 	rm -rf ${OBJC} ${OBJCB}
+
 fclean: clean
-	rm -rf ${NAME}
+	rm -rf ${NAME} ${NAMEB}
+
 re : fclean all

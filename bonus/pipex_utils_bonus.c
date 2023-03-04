@@ -6,31 +6,31 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:36:28 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/27 22:46:32 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/04 16:23:34 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*join;
-	int		i;
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	char	*join;
+// 	int		i;
 
-	i = -1;
-	if (!s1 || !s2)
-		return (NULL);
-	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!join)
-		return (NULL);
-	while (s1[++i])
-		join[i] = s1[i];
-	i = -1;
-	while (s2[++i])
-		join[ft_strlen(s1) + i] = s2[i];
-	join[ft_strlen(s1) + i] = '\0';
-	return (join);
-}
+// 	i = -1;
+// 	if (!s1 || !s2)
+// 		return (NULL);
+// 	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+// 	if (!join)
+// 		return (NULL);
+// 	while (s1[++i])
+// 		join[i] = s1[i];
+// 	i = -1;
+// 	while (s2[++i])
+// 		join[ft_strlen(s1) + i] = s2[i];
+// 	join[ft_strlen(s1) + i] = '\0';
+// 	return (join);
+// }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -47,6 +47,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (1);
 	else
 		return (0);
+}
+
+void ft_error(char *s)
+{
+	perror("Error\n");
+	perror(s);
+	exit(1);
 }
 
 char	*check_env(char **env, char **cmd)
@@ -74,7 +81,7 @@ char	*check_env(char **env, char **cmd)
             free(path);
 	}
 	if (access(path,R_OK) == -1)
-		perror("no access to the command\n");
+		ft_error("no access to the command\n");
     ft_free(ret);
     //ft_free(cmd);
     return(path);

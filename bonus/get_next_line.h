@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 02:56:05 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/27 22:46:18 by aatki            ###   ########.fr       */
+/*   Updated: 2023/02/28 17:35:14 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *src);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*check(char **s);
+int	ft_strlen(char *s);
 
 #endif
