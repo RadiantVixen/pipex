@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:36:28 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/26 20:49:54 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/05 21:42:21 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,15 @@ char	*check_env(char **env, char **cmd)
             free(path);
 	}
 	if (access(path,R_OK) == -1)
-		perror("no access to the command\n");
+		ft_error("no access to the command\n");
     ft_free(ret);
-     //ft_free(cmd);
+    //ft_free(cmd);
     return(path);
+}
+
+void ft_error(char *s)
+{
+	perror("Error\n");
+	perror(s);
+	exit(1);
 }
