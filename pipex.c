@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:14:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/03/06 16:35:37 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 16:35:45 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int ac, char **av, char **env)
 			child_one(av, env, fd);
 		id2 = fork();
 		if (id2 < 0)
-			perror("can't fork") ;
+			perror("can't fork");
 		if (id2 == 0)
 			child_two(av, env, fd);
 		if (close(fd[0]) < 0)
