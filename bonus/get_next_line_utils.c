@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:02:27 by aatki             #+#    #+#             */
-/*   Updated: 2023/03/06 16:14:16 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 19:15:12 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++i])
 		join[ft_strlen(s1) + i] = s2[i];
 	join[ft_strlen(s1) + i] = '\0';
+	free(s1);
 	return (join);
 }
 

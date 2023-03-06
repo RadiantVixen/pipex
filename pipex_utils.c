@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:36:28 by aatki             #+#    #+#             */
-/*   Updated: 2023/03/06 16:24:47 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 19:17:15 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++i])
 		join[ft_strlen(s1) + i] = s2[i];
 	join[ft_strlen(s1) + i] = '\0';
+	free(s1);
 	return (join);
 }
 
@@ -77,7 +78,6 @@ char	*check_env(char **env, char **cmd)
 	{
 		temp = ft_strjoin(ret[i], "/");
 		path = ft_strjoin(temp, cmd[0]);
-		free(temp);
 		if (access(path, R_OK) == 0)
 			break ;
 		else
@@ -85,7 +85,7 @@ char	*check_env(char **env, char **cmd)
 	}
 	if (access(path, R_OK) == -1)
 		ft_error("no access to the command\n");
-	ft_free(ret);
+	free(ret);
 	return (path);
 }
 
