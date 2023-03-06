@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 20:46:22 by aatki             #+#    #+#             */
-/*   Updated: 2023/02/26 20:50:56 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 16:22:11 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
-	if (start >= (unsigned int) ft_strlen(s))
+	if (start >= (unsigned int)ft_strlen(s))
 		return (NULL);
 	i = 0;
 	while (s[start + i] && i < len)
 		i++;
-	sub = (char *)malloc (sizeof(char) * (i + 1));
+	sub = (char *)malloc(sizeof(char) * (i + 1));
 	if (!sub)
 		return (NULL);
 	i = 0;

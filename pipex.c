@@ -6,23 +6,11 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:14:33 by aatki             #+#    #+#             */
-/*   Updated: 2023/03/05 21:41:48 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 16:25:32 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-// void	execution(char **av, char **env)
-// {
-// 	char	*path;
-// 	char *c[] = {av[2], av[1],NULL};
-// 	char	**cmd;
-// 	cmd = ft_split(av[2], ' ');
-// 	path = check_env(env, cmd);
-// 	execve(path, c, env);
-// 	ft_free(c);
-// 	ft_free(cmd);
-// }
 
 void	execution(char *command, char **env)
 {
@@ -39,7 +27,6 @@ void	execution(char *command, char **env)
 	else
 	{
 		path = check_env(env, cmd);
-		// dprintf(1,"%s\n", );
 		if (execve(path, cmd, env) < 0)
 			ft_error("command can't executude");
 	}
@@ -49,7 +36,7 @@ void	execution(char *command, char **env)
 
 void	child_one(char **av, char **env, int *fd)
 {
-		int	infile;
+	int	infile;
 
 	infile = open(av[1], O_RDONLY);
 	close(fd[0]);
@@ -57,8 +44,6 @@ void	child_one(char **av, char **env, int *fd)
 		ft_error("can't dup");
 	if (dup2(fd[1], 1) < 0)
 		ft_error("can't dup");
-	// close(fd[1]);
-	//unlink("../.aatki.tmp");
 	execution(av[2], env);
 }
 
@@ -69,14 +54,12 @@ void	child_two(char **av, char **env, int *fd)
 	outfile = open(av[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (outfile < 0)
 		ft_error("file can't opennn");
-	// fd[1] = outfile;
 	if (close(fd[1]) < 0)
 		ft_error("file can't close in child 2");
 	if (dup2(fd[0], 0) < 0)
 		ft_error("can't 2 dup in child 2");
 	if (dup2(outfile, 1) < 0)
 		ft_error("can't 1 dup in child 2");
-	// write(2, "dexter", 6);
 	execution(av[3], env);
 }
 

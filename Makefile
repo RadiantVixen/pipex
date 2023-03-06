@@ -6,7 +6,7 @@
 #    By: aatki <aatki@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 17:07:21 by aatki             #+#    #+#              #
-#    Updated: 2023/03/04 17:58:01 by aatki            ###   ########.fr        #
+#    Updated: 2023/03/06 16:33:29 by aatki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,3 +50,6 @@ fclean: clean
 	rm -rf ${NAME} ${NAMEB}
 
 re : fclean all
+
+git :
+	git add . && git commit -m "kl" && git push

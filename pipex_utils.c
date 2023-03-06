@@ -6,7 +6,7 @@
 /*   By: aatki <aatki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:36:28 by aatki             #+#    #+#             */
-/*   Updated: 2023/03/05 21:42:21 by aatki            ###   ########.fr       */
+/*   Updated: 2023/03/06 16:24:47 by aatki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,19 @@ char	*check_env(char **env, char **cmd)
 	{
 		temp = ft_strjoin(ret[i], "/");
 		path = ft_strjoin(temp, cmd[0]);
-        free(temp);
-        if (access(path,R_OK) == 0)
-            break;
-        else
-            free(path);
+		free(temp);
+		if (access(path, R_OK) == 0)
+			break ;
+		else
+			free(path);
 	}
-	if (access(path,R_OK) == -1)
+	if (access(path, R_OK) == -1)
 		ft_error("no access to the command\n");
-    ft_free(ret);
-    //ft_free(cmd);
-    return(path);
+	ft_free(ret);
+	return (path);
 }
 
-void ft_error(char *s)
+void	ft_error(char *s)
 {
 	perror("Error\n");
 	perror(s);
